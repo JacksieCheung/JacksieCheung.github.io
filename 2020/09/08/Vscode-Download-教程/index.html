@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title>Category: 技术 | Hello World!</title>
+  <title>Vscode Download 教程 | Hello World!</title>
   <meta name="description" content="jacksieChueng的个人博客" />
   <meta name="keywords" content="linux,golang,mysql,rpc" />
   
@@ -207,170 +207,171 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/sharejs.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img data-src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/newyearkailu.png" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img">
+        <img src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100361.webp" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+      </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Vscode Download 教程</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-9-8
+        
+      
+        ·<span id="readcount"></span>次阅读
+      
+      </p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">技术</h1>
-    <span class="cat-des">
-      <p id="en">从0开始学编程，从入门到入土</p>
-    </span>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"> <!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="win10配置vscode简易教程"><a href="#win10配置vscode简易教程" class="headerlink" title="win10配置vscode简易教程"></a>win10配置vscode简易教程</h1><ul>
+<li>安装vscode</li>
+<li>安装MinGw</li>
+<li>配置vscode开发环境</li>
+</ul>
+<h3 id="1、安装vscode"><a href="#1、安装vscode" class="headerlink" title="1、安装vscode"></a>1、安装vscode</h3><p>&#8195;vscode是啥？是一个用来写代码的工具，就像你用windows写作文你会用words吧？写代码就可以用vscode（当然也可以用其他的）。为什么我会选择用它呢？第一，好看。颜值即正义。第二，好用。安装、配置插件都很简单。而且能能写多种语言。第三，<del>用习惯了。</del></p>
+<p>&#8195;安装vscode非常简单，记住：<strong>装东西就上官网</strong></p>
+<p>&#8195; <strong>vscode官网：</strong> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/vscode%E5%AE%98%E7%BD%91.png" alt="图片错误"></p>
+<p>&#8195;然后你就能看见大大的 <strong>Download for Windows</strong>图标，点就完了。浏览器弹出一个窗口，点保存。下完了，打开文件夹就能看见exe文件。双击运行，跟着引导走就可以了。</p>
+<p>&#8195;完了就能在开始菜单的软件栏里面找到你想要的。实在找不到搜索总会吧？</p>
+<h3 id="2、安装MinGw"><a href="#2、安装MinGw" class="headerlink" title="2、安装MinGw"></a>2、安装MinGw</h3><p>&#8195; 严格地说，vscode叫编辑器不叫编译器。只用单单一个vscode，我们能写，但不能运行，没啥意义。</p>
+<p>&#8195; 怎么办？那就弄一个能跑的东西呗。这个东西就是MinGw。它给我们windows提供gcc工具（编译工具）。</p>
+<p>&#8195; 这个MinGw，我们可以在<strong>开源网站下</strong>：</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/">https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/MinGw1.png" alt="图片错误"></p>
+<p>&#8195; 但是要注意，sourceforge是国外网站，时不时会给你断掉。如果不能访问，就克隆我的github仓库吧，我把MinGw放里面了。克隆之后取出要的，别的删了就行。</p>
+<p>仓库地址：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JacksieCheung/sourceStage/blob/master/mingw-w64-install.exe">https://github.com/JacksieCheung/sourceStage/blob/master/mingw-w64-install.exe</a></p>
+<p>&#8195; 进来之后别急着乱点，你能看到的页面的所有按钮都不是我们想要的。接下来往下拉，直到看到这个：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/MinGw2.png" alt="图片错误"></p>
+<p>&#8195; 看到第一个没有，MinGw-W64-install.exe</p>
+<p>&#8195; 点一下会跳转页面。跳了之后稍微等几秒会弹出框框，保存。等下完了双击运行，跟着引导安装。不需要别的操作，一路next就行了。当然你也可以试试别的。</p>
+<p>&#8195; 好，点完之后MinGw就下好了。但是现在还不能用，因为我们的系统找不到MinGw在哪。所以进入下面的步骤：<strong>配置环境变量</strong>。</p>
+<p>&#8195; 配置环境变量也很简单，此电脑右键点击-属性-高级系统设置-环境变量。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F1.png" alt="图片错误"></p>
+<p>&#8195;这样就进到了环境变量的设置里。接下来我们在上面的xx用户变量的框里选Path，(理论上下面那个系统变量的Path也可以，你可以试试）然后编辑-新建。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.png" alt="图片错误"></p>
+<p>&#8195;在框里面输入我们安装MinGw里的bin文件夹的路径。（就是找到bin这个文件，然后把它的路径复制到框里面去）完了点确定就能溜了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F3.png" alt="图片错误"></p>
+<p>&#8195;最后打开cmd（在搜索里面输入cmd然后回车，弹出一个黑框就是），输入 gcc -v</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/cmd.png" alt="图片错误"></p>
+<p>&#8195;得到上面结果，说明搞定了。</p>
+<h3 id="3、配置vscode"><a href="#3、配置vscode" class="headerlink" title="3、配置vscode"></a>3、配置vscode</h3><p>&#8195;配置vscode也很简单，看见左边竖着的五个选项没有，选最下面那个四个正方形。然后我们在搜索框搜插件就能点击install自动下载安装。<br>                                                                                                        下面是我常用的几个插件：</p>
+<ul>
+<li><p>C/C++ (简介有IntelliSense,debugging那个） 用来写C</p>
+</li>
+<li><p>Chinese（Simplified） 汉化</p>
+</li>
+<li><p>Code Runner 用来在vscode里一键运行</p>
+</li>
+<li><p>GBKtoUTF8 用来解决汉字编码</p>
+</li>
+<li><p>Markdown Preview Enhanced 写markdown必备，实时预览</p>
+</li>
+<li><p>Go 写go用的</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/vscodeplugin.png" alt="图片错误"></p>
+<p>&#8195; 别的插件可以自行百度。</p>
+<p>&#8195; 然后工作区随便打开一个目录就能用了，不过你要是写go，还要自己去官网下，写c直接就可以用了。</p>
+
+        </div>
+        <!-- .entry-content -->
+        
+        <p></p>
+          
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/09/08/hello-my-life/" rel="next">
+              <div class="background">
+                
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100161.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                hello my life</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/08/Vscode-Download-%E6%95%99%E7%A8%8B/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100361.webp" onerror="imgError(this,3)" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/08/Vscode-Download-%E6%95%99%E7%A8%8B/">
-    Vscode Download 教程</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-8</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/08/Vscode-Download-%E6%95%99%E7%A8%8B/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/06/hello-world/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/104961.webp" onerror="imgError(this,3)" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/06/hello-world/">
-    hello-world</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-6</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/06/hello-world/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
-<!-- 
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/08/Vscode-Download-%E6%95%99%E7%A8%8B/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100361.webp" onerror="imgError(this,3)" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/08/Vscode-Download-%E6%95%99%E7%A8%8B/">
-    Vscode Download 教程</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-8</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/08/Vscode-Download-%E6%95%99%E7%A8%8B/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/06/hello-world/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/104961.webp" onerror="imgError(this,3)" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/06/hello-world/">
-    hello-world</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-6</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/06/hello-world/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
 
- -->
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
