@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title>vscode download course | Hello World!</title>
+  <title>redis introduction | Hello World!</title>
   <meta name="description" content="jacksieChueng的个人博客" />
   <meta name="keywords" content="linux,golang,mysql,rpc" />
   
@@ -214,11 +214,11 @@
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
     <div class="pattern-attachment-img">
-        <img src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100361.webp" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+        <img src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100161.webp" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
       </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      vscode download course</h1>
+      redis introduction</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -230,7 +230,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-9-8
+        2020-10-12
         
       
         ·<span id="readcount"></span>次阅读
@@ -247,58 +247,179 @@
         <!--<div class="toc-entry-content"> <!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="win10配置vscode简易教程"><a href="#win10配置vscode简易教程" class="headerlink" title="win10配置vscode简易教程"></a>win10配置vscode简易教程</h1><ul>
-<li>安装vscode</li>
-<li>安装MinGw</li>
-<li>配置vscode开发环境</li>
-</ul>
-<h3 id="1、安装vscode"><a href="#1、安装vscode" class="headerlink" title="1、安装vscode"></a>1、安装vscode</h3><p>&#8195;vscode是啥？是一个用来写代码的工具。就像你用windows写作文你会用words吧？写代码就可以用vscode（当然也可以用其他的）。为什么我会选择用它呢？第一，好看。颜值即正义。第二，好用。安装、配置插件都很简单。而且能写多种语言。第三，<del>用习惯了。</del></p>
-<p>&#8195;安装vscode非常简单，记住：<strong>装东西就上官网</strong></p>
-<p>&#8195; <strong>vscode官网：</strong> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/vscode%E5%AE%98%E7%BD%91.png" alt="图片错误"></p>
-<p>&#8195;然后你就能看见大大的 <strong>Download for Windows</strong>图标，点就完了。浏览器弹出一个窗口，点保存。下完了，打开文件夹就能看见exe文件。双击运行，跟着引导走就可以了。</p>
-<p>&#8195;完了就能在开始菜单的软件栏里面找到你想要的。实在找不到搜索总会吧？</p>
-<h3 id="2、安装MinGw"><a href="#2、安装MinGw" class="headerlink" title="2、安装MinGw"></a>2、安装MinGw</h3><p>&#8195; 严格地说，vscode叫编辑器不叫编译器。只用单单一个vscode，我们能写，但不能运行，没啥意义。</p>
-<p>&#8195; 怎么办？那就弄一个能跑的东西呗。这个东西就是MinGw。它给我们windows提供gcc工具（编译工具）。</p>
-<p>&#8195; 这个MinGw，我们可以在<strong>开源网站下</strong>：</p>
-<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/">https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/MinGw1.png" alt="图片错误"></p>
-<p>&#8195; 但是要注意，sourceforge是国外网站，时不时会给你断掉。如果不能访问，就克隆我的github仓库吧，我把MinGw放里面了。克隆之后取出要的，别的删了就行。</p>
-<p>仓库地址：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/JacksieCheung/sourceStage/blob/master/mingw-w64-install.exe">https://github.com/JacksieCheung/sourceStage/blob/master/mingw-w64-install.exe</a></p>
-<p>&#8195; 进来之后别急着乱点，你能看到的页面的所有按钮都不是我们想要的。接下来往下拉，直到看到这个：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/MinGw2.png" alt="图片错误"></p>
-<p>&#8195; 看到第一个没有，MinGw-W64-install.exe</p>
-<p>&#8195; 点一下会跳转页面。跳了之后稍微等几秒会弹出框框，保存。等下完了双击运行，跟着引导安装。这里要注意一个叫<strong>Architecture</strong>的选项，那个如果是64位就选x86_64，是32就选i686。（这里一定要选好，不然用不了。）后面的跟着next就行了。</p>
-<p>&#8195; 要注意这里的exe文件需要联网安装，请保持网络通畅。如果想离线安装的，可以找那个开源网站别的安装包。</p>
-<p>&#8195; 好，点完之后MinGw就下好了。但是现在还不能用，因为我们的系统找不到MinGw在哪。所以进入下面的步骤：<strong>配置环境变量</strong>。</p>
-<p>&#8195; 配置环境变量也很简单，此电脑右键点击-属性-高级系统设置-环境变量。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F1.png" alt="图片错误"></p>
-<p>&#8195;这样就进到了环境变量的设置里。接下来我们在上面的xx用户变量的框里选Path，(理论上下面那个系统变量的Path也可以，你可以试试）然后编辑-新建。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.png" alt="图片错误"></p>
-<p>&#8195;在框里面输入我们安装MinGw里的bin文件夹的路径。（就是找到bin这个文件，然后把它的路径复制到框里面去）完了点确定就能溜了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F3.png" alt="图片错误"></p>
-<p>&#8195;最后打开cmd（在搜索里面输入cmd然后回车，弹出一个黑框就是），输入 gcc -v</p>
-<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/cmd.png" alt="图片错误"></p>
-<p>&#8195;得到上面结果，说明搞定了。</p>
-<h3 id="3、配置vscode"><a href="#3、配置vscode" class="headerlink" title="3、配置vscode"></a>3、配置vscode</h3><p>&#8195;配置vscode也很简单，看见左边竖着的五个选项没有，选最下面那个四个正方形。然后我们在搜索框搜插件就能点击install自动下载安装。<br>                                                                                                        下面是我常用的几个插件：</p>
+          <p><strong>Redis</strong></p>
+<p><strong>redis的线程io模型</strong></p>
+<p>redis是单线程的，这句话并不准确。</p>
+<p>redis在处理客户端请求时，包括获取（socket读）解析，执行，返回（socket写），等都是由一个顺序串行的主线程处理。这就是以前说的单线程。但是redis4.0之后，也不是完全的单线程，后台也开了线程处理较慢的操作，删除大key等。</p>
+<p>redis6.0之后加入了多线程。</p>
+<p>redis的数据都在内存里面，所有运算都是内存级别的运算。要小心某些耗时特别长的指令，可能会对redis造成卡顿。</p>
+<p>以前的redis是单线程，但为什么能处理那么多并发客户端的连接？那是因为redis用了采用了IO的多路复用。</p>
 <ul>
-<li><p>C/C++ (简介有IntelliSense,debugging那个） 用来写C</p>
-</li>
-<li><p>Chinese（Simplified） 汉化</p>
-</li>
-<li><p>Code Runner 用来在vscode里一键运行</p>
-</li>
-<li><p>GBKtoUTF8 用来解决汉字编码</p>
-</li>
-<li><p>Markdown Preview Enhanced 写markdown必备，实时预览</p>
-</li>
-<li><p>Go 写go用的</p>
-</li>
+<li>socket</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/vscodeDownload/vscodeplugin.png" alt="图片错误"></p>
-<p>&#8195; 别的插件可以自行百度。</p>
-<p>&#8195; 然后工作区随便打开一个目录就能用了，不过你要是写go，还要自己去官网下，写c直接就可以用了。</p>
+<p>在说多路复用前，需要先了解socket。socket是我们操作系统提供给我们的接口。当客户端和服务器使用tcp通讯时，客户端封装一个请求对象req，将请求对象req序列化成字节数组。然后通过套接字将数组发送到服务器。服务器再反序列化成请求对象req进行处理。</p>
+<p><img src="socket.gif" alt="socket"></p>
+<p>这个socket对象存放在操作系统的内核中，有读缓冲和写缓冲。都是有限大小的数组结构。写字节时就是将字节数组复制到内核套接字对象的写缓冲中。读其实就是将读缓冲中的数组读出，在内存中反序列化。</p>
+<p>socket给我们提供的两个方法，read和write默认是阻塞的。但是也可以设置成非阻塞。非阻塞就是能读多少读多少，能写多少写多少。实际读了多少会有返回值来告诉程序。这样读写就能瞬间完成，然后线程就可以干别的事情了。</p>
+<ul>
+<li>IO多路复用</li>
+</ul>
+<p>上面讲了将socket的读写方法设置成非阻塞，但是其实还不完整。因为都是读了写了就返回了，线程不知道什么时候才继续读和写。</p>
+<p>这个时候就要用到操作系统给我们的事件轮询api。这里以select为例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">read_events, write_events &#x3D; select(read_fds, write_fds, timeout)</span><br><span class="line">for event in read_events:</span><br><span class="line">    handle_read(event.fd)</span><br><span class="line">for event in write_events:</span><br><span class="line">    handle_write(event.fd)</span><br><span class="line">handle_others()</span><br></pre></td></tr></table></figure>
+
+<p>read_fds和write_fds表示读和写的描述符。每个客户端socket都有对应的读写描述符。除此之外还设置了过期时间timeout。这个每个select只要有读写事件就会马上返回，等不到也会有timeout过期返回。然后线程又进入了下一个循环，成了一个死循环。这就是redis的事件循环。</p>
+<p>redis的事件循环：</p>
+<p><img src="eventLoop.png" alt="eventLoop"></p>
+<p><img src="event.png" alt="source"></p>
+<p>因为select系统调用可以同时处理多个通道描述符的读写事件，就称这个为多路复用api。现代的多路复用api已经不使用select。像linux会使用epoll。</p>
+<p><strong>redis的持久化</strong></p>
+<p>redis所有的数据都是在内存的，万一突然挂掉了，数据就全部丢失了。所以需要一个持久化策略。redis用到的两个策略是快照和AOF。</p>
+<ul>
+<li>快照和 copy on write</li>
+</ul>
+<p>快照是内存数据的二进制序列化形式，读取内存数据并写入磁盘。那我们直到redis是单线程的，主线程在处理请求的同时，还要对内存数据进行读操作会严重拖累性能。所以redis需要一边持久化，一边处理请求。这就用到了操作系统的cow机制。</p>
+<p>在开启快照时，redis会调用glibc的函数fork产生一个子进程。快照持久化完全交给子进程。这两个进程会共用代码段和数据段。子进程做数据持久化不会改变内存数据结构，只是遍历读取然后序列化到磁盘。但是父进程可能会修改。这个时候，cow会进行数据段页面的分离。当父进程对其中一个页面的数据进行修改时，会将共享的页面复制一份出来，然后对这个页面就行修改。而子进程读的数据没有任何改变，它看到数据的那一瞬间就不变了，就像拍照一样，就称快照。</p>
+<p>数据分离得再多，也不会超过原来内存的两倍。实际情况只是分离了部分。</p>
+<ul>
+<li>AOF日志存储</li>
+</ul>
+<p>AOF日志是以文件形式存在的，它存储的是redis的指令集。只记录对内存进行修改的指令记录。redis会在收到客户端修改指令后，进行参数校验，逻辑处理，如果没有问题就将该文件写入AOF日志。</p>
+<p>但是AOF重启的时候用AOF会非常耗时，有一个优化办法是对它进行瘦身。</p>
+<p>redis提供了bgrewriteaof指令用于对AOF瘦身。原理就是开启子进程对内存遍历，转换成一系列指令，序列化到AOF文件中。然后再将这期间的增量AOF日志追加到文件里面，然后换掉原来那个。</p>
+<p>另外还有一个问题，就是在对AOF日志写操作时，其实会先写入内存的缓冲区再异步写入文件。如果在这期间突然断电了，就会损失数据。linux的glibc提供了fsync的方法，可以强制把指令刷入磁盘。但是这么一来，就变成了磁盘io操作，会很慢。redis一般是每隔1s调用一次。</p>
+<p>在实际运行中，快照会消耗比较多的资源，AOF的fsync又很慢。通常redis的主节点不会进行持久化，会交给从节点备份，因为它们不会有客户端的压力。</p>
+<ul>
+<li>redis4.0混合持久化</li>
+</ul>
+<p>考虑重启节点的时候，用快照的rdb文件会损失数据，用AOF日志会很慢。所以4.0带来了一个新的选项————混合持久化。</p>
+<p>将AOF和rdb文件存在一起。先进行快照操作，然后这段期间的操作用AOF记录。这样重启效率就得到提升。</p>
+<p><strong>redis的数据结构</strong></p>
+<p>redis的基本数据结构有string list hash set zset五种</p>
+<p>首先要说的是所有的redis对象都有下列的对象头结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct RedisObject &#123;</span><br><span class="line">    int4 type;       &#x2F;&#x2F; 4bits</span><br><span class="line">    int4 encoding;   &#x2F;&#x2F; 4bits</span><br><span class="line">    int24 lru;       &#x2F;&#x2F; 24bits</span><br><span class="line">    int32 refcount;  &#x2F;&#x2F; 4bytes</span><br><span class="line">    void *ptr;       &#x2F;&#x2F; 8bytes ;64-bit system</span><br><span class="line">&#125; robj;</span><br></pre></td></tr></table></figure>
+
+
+<p>这样一个对象头结构需要占据16字节的存储空间</p>
+<ul>
+<li>string的结构和存储方式(embstr/raw)</li>
+</ul>
+<p>redis的字符串是可以修改的，在内存中是以字节数组形式存在的。c语言的字符串标准形式是以’\0’作为结束符，然后要获取string的长度直接调用strlen。但是这要对字符串进行遍历扫描。redis单线程顶不住，所以redis的字符串结构，稍微不一样。</p>
+<p>redis的string又叫sds(simple dynamic string)结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct SDS&lt;T&gt; &#123;</span><br><span class="line">    T capacity;      &#x2F;&#x2F; 数组容量</span><br><span class="line">    T len;           &#x2F;&#x2F; 数组长度</span><br><span class="line">    byte flags;      &#x2F;&#x2F; 特殊标识符</span><br><span class="line">    byte[] content;  &#x2F;&#x2F; 数组内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的capacity表示分配数组的长度，len表示数组实际长度。</p>
+<p>两者关系：</p>
+<p><img src="string.jpg" alt="stringlen"></p>
+<p>这里结构的capacity和len都是范型，而不是直接用int。是因为字符串很短时，两者可以分别用byte和short来表示。省下内存。</p>
+<p>redis规定字符串长度不能超过512mb。创建字符串时，len和capacity会一样长，不会分配多余空间。因为在大多数情况下，我们不会使用append来修改字符串。</p>
+<p>另外，redis的string有两种存储结构，分别是embstr和raw。以44字节为分界点，44以下用embstr，44以上用raw。</p>
+<p>但为什么是44字节？</p>
+<p>两者结构如下：</p>
+<p><img src="embstrraw.png" alt="embstrraw"></p>
+<p>其实embstr存储，只调用一次malloc为整个string分配空间，它们的地址是连在一起的。而raw会调用两次分配，它们的地址一般不连在一起。而内存分配器jemalloc，tcmalloc等分配大小单位都是2/4/8/16/32/64。最多分配的就是64个字节。如果字符串超过了64字节，那么就认为它是个大的字节，就要用raw存储。注意这里的字符串长度，是连着头对像的整体长度。</p>
+<p><img src="stringlen.png" alt="string"></p>
+<p>所以当字符串的内容超过44字节时(64-19(头对象16+sds3)-1(null)=44)，存储形式会发生变化。</p>
+<ul>
+<li>hash和set的字典结构(dict)与渐进式rehash</li>
+</ul>
+<p>字典是redis出现最频繁的复合型数据结构，除了hash和set的结构会用到字典之外，整个redis数据库的所有key和value也组成了一个全局字典，还有带过期时间的key集合也是一个字典。</p>
+<p>set的底层和hash是一样的，只不过set的所有value都是null。</p>
+<p>redis的字典结构如下：</p>
+<p><img src="hash.webp" alt="hash"></p>
+<p>如图，第一层的ht是只有两个元素的数组，数组指向了两个hashtable。一般只有一个有值，另一个只会在rehash的时候会用到。hashtable后面的结构是一维数组，二维链表。数组中存放的是第二维链表的第一个元素的指针。</p>
+<p>hashtable要将key打散得比较均匀，才能发挥好它得性能。如果key太多，太拥挤了，就要进行扩容。一般来说hash表中的元素个数等于第一维数组的长度时，就会开始扩容。扩容的新数组时原来数组的两倍。如果redis正在进行bgsave，redis会尽量少扩容。但是如果元素个数达到了一维数组的五倍，就会强制扩容。相对的，当元素个数低于数组长度的10%时，会进行缩容。</p>
+<p>大字典的rehash过程其实是比较耗时间的，单线程的redis顶不住。所以redis采用了渐进式rehash的方法，把搬迁操作埋在当前字典的后续指令中。如果没有来指令，定时任务也会处理。</p>
+<p>结构中有一个和rehash有关的是rehashidx属性，它会积累rehash目前的进度，如果没有进行rehash，则它的值为-1。</p>
+<p>那rehash过程中存在两张表，对它的操作怎么进行呢？</p>
+<p>这个时候两张表都会找。查找会先在ht[0]上找，找不到再ht[1]。添加操作一率再ht[1]中保存。保证ht[0]的元素只少不多。</p>
+<ul>
+<li>hash和zset节省内存的方案，压缩列表(ziplist)</li>
+</ul>
+<p>redis为了节约内存，zset和hash在元素个数较少的时候，会采用ziplist进行存储。它是一段连续的内存空间。元素之间紧挨着存储，没有任何冗余空隙。</p>
+<p>如下为ziplist的伪代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">struct ziplist&lt;T&gt; &#123;</span><br><span class="line">    int32 zlbytes;         &#x2F;&#x2F; 整个压缩列表占用的字节数</span><br><span class="line">    int32 zltail_offset;   &#x2F;&#x2F; 最后一个元素距离压缩列表起始位置的偏移量</span><br><span class="line">    int16 zllength;        &#x2F;&#x2F; 元素个数</span><br><span class="line">    T[] entries;           &#x2F;&#x2F; 元素内容列表，依次紧凑存储</span><br><span class="line">    int8 zlend;            &#x2F;&#x2F; 标志压缩列表的结束，值恒为 0xFF</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct entry &#123;</span><br><span class="line">    int&lt;var&gt; prevlen;        &#x2F;&#x2F; 前一个 entry 的字节长度</span><br><span class="line">    int&lt;var&gt; encoding;       &#x2F;&#x2F; 元素类型编码</span><br><span class="line">    optional byte[] content; &#x2F;&#x2F; 元素内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ziplist结构如下：</p>
+<p><img src="ziplist" alt="ziplist"></p>
+<p>需要说的是prevlen是一个变长整数。当前一个entry的长度比254字节小时，用一个字节。当前一个entry的长度大于254字节时，会变成用5个字节。这会造成一个问题：级联更新</p>
+<p>当一个entry从253变成254时，后面的entry的prevlen就要从一个字节变成五个字节。如果后面的entry刚好又是253，那么就要继续变。最坏的情况就是全部都要变。</p>
+<p>ziplist没有存储空间，要增加元素就要调用realloc。取决于内存分配器的算法和当前ziplist内存大小，可能在原地址上变也可能新建再复制。如果是重新分配内存再复制，ziplist占据内存又太大，就会造成很大消耗。所以不适合存储大型字符串。</p>
+<p>为了节约资源，ziplist的encoding字段进行了很复杂的设计，通过这个字段的前缀去确认content的类型。下面是一些例子：</p>
+<p>00xxxxxx 表示最大长度位数为63的短字符串，后面6个位存储字符串的位数。</p>
+<p>01xxxxxx xxxxxxxx 是中等长度的字符串，后面14个位来表示存储字符串的位数。</p>
+<ul>
+<li>小整数set专用的intset</li>
+</ul>
+<p>当set容纳的元素都是整数并且元素个数较小时，redis会使用intset来存储集合元素。</p>
+<p>intset是紧凑的数组结构，同时支持16/32/64位整数。</p>
+<p>伪代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct intset&lt;T&gt; &#123;</span><br><span class="line">    int32 encoding;  &#x2F;&#x2F; 决定整数位宽是16&#x2F;32&#x2F;64</span><br><span class="line">    int32 length;    &#x2F;&#x2F; 元素个数</span><br><span class="line">    int&lt;T&gt; contents; &#x2F;&#x2F; 整数数组</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>list的底层，链表套娃，快速列表(quicklist)</li>
+</ul>
+<p>redis以前的版本用普通双向链表和压缩列表来存储list，现在换了用快速列表。快速列表其实就是两者的结合体，顶层是双向列表，每个节点指向压缩列表。</p>
+<p>这样一个quicklist节点保存的是一个ziplist，是一片数据</p>
+<p>伪代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">struct quicklistNode &#123;</span><br><span class="line">    quicklistNode* prev;</span><br><span class="line">    quicklistNode* next;</span><br><span class="line">    ziplist* zl;   &#x2F;&#x2F; 指向压缩列表</span><br><span class="line">    int32 size;    &#x2F;&#x2F; ziplist 字节总数</span><br><span class="line">    int16 count;   &#x2F;&#x2F; ziplist 存储元素</span><br><span class="line">    int2 encoding; &#x2F;&#x2F; 存储形式</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结构如下：</p>
+<p><img src="quicklist.png" alt="quicklist"></p>
+<p>redis为了节约空间，还会对ziplist压缩，用的是LZF算法压缩。</p>
+<p>大概就是这种效果</p>
+<p><img src="LZF.png" alt="LZF"></p>
+<p>每个quicklist内部默认单个ziplist长度为8kb，超过这个长度就会新增ziplist。长度可以设置。</p>
+<p>quicklist默认压缩深度是0，也就是不压缩。为了支持快速pop和push，首尾两个ziplist不压缩，压缩深度就是1。首尾两个，和首尾第二个不压缩，压缩深度就是2。</p>
+<ul>
+<li>zset的底层，跳跃列表</li>
+</ul>
+<p>zset因为有排序功能，单独一个字典结构不够用。所以zset的底层是一个hash加上一个跳跃列表。跳跃列表专门来提供排序功能。</p>
+<p>其伪代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct zslnode &#123;</span><br><span class="line">    strirng value;</span><br><span class="line">    double score;</span><br><span class="line">    zslnode*[] forwards; &#x2F;&#x2F; 多层连接指针</span><br><span class="line">    zslnode* backward;   &#x2F;&#x2F; 回溯指针</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结构如下：</p>
+<p><img src="skiplist.jpg" alt="skiplist"></p>
+<p>其中每个节点的结构：</p>
+<p><img src="skiplistnode.png" alt="skiplistnode"></p>
+<p>查找列表时，如果要找最后一个比“我”的元素。从最高的节点开始找到第一个元素，然后从这个节点开始降到最后一层遍历就能找到这个元素了。</p>
+<p><img src="skipexam" alt="skipexam"></p>
+<p>对于每一个插入的节点，会有一个随机算法给它分配一个合理的层数。50%第一层，25%第二层，12.5%第三层，以此类推。</p>
+<p>删除和新增都有可能会改变表头的列表最高层。</p>
+<p>更新的时候，score变了，redis会直接删掉再插入，操作两次。<br>元素的排名靠的是forward指针的跨度字段(span)。span表示跳到下一个节点所跳过的节点。找排名时，就是简单地把路过节点的span相加。</p>
+<p><strong>redis过期策略</strong></p>
+<p>redis会将每个设置了过期时间的key放入一个独立的字典中，以后会定时遍历到期的key。除了定时扫描外，redis还会采用惰性策略。就是客户端访问这个key的时候，redis对key的过期时间进行检查，如果过起了就立即删除。一个集中处理，一个零散处理。</p>
+<ul>
+<li>定时扫描</li>
+</ul>
+<p>redis默认每秒进行10次过期扫描，过期扫描不会遍历字典中所有key，而时采用了一种简单的贪心算法：</p>
+<p>1从过期字典中随机选出20个key</p>
+<p>2删除20个key中的过期key</p>
+<p>3如果过期key比例超过了1/4，就重复步骤一</p>
+<p>同时，为了保证过期扫描不会出现循环过度，导致线程卡死，算法还增加了扫描上限，默认不会超过25ms。</p>
+<p>为了防止一个大型redis实例中的所有key在同一时间过期导致的卡死，要给key的过期时间设定一个随机范围</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis.expire_at(key, random.randint(86400)+expire_ts)</span><br></pre></td></tr></table></figure>
+
+<p><strong>redis的淘汰策略，LRU和LFU</strong></p>
+<p>当redis的内存超出物理内存限制时，redis就要开始清理自己的键腾出空间了。它提供了几种策略：1不会继续写请求，但是可以读。2淘汰设置过期时间的键，按热度淘汰/随机淘汰/按寿命淘汰。3淘汰全部的键，按热度/随机淘汰。</p>
+<ul>
+<li>LRU模式</li>
+</ul>
+<p>一般的LRU算法就是将全部的键放进链表里面，访问了就提到表头。淘汰时把尾部踢掉。但redis要使用这种方法，就要额外消耗内存。所以redis采用了近似lru的算法。</p>
+<p>redis的头对象结构中有一个字段叫LRU，那是用来记录对象热度的。在lru模式下，这个字段存储的是redis时钟server.lruclock，每次访问都会更新。这是一个24bit的整数，默认是unix时间戳对2的24次方取模的结果，大约97天清零一次，redis默认每毫秒更新一次。</p>
+<p>如果server.lruclock没有超过REDIS_LRU_CLOCK_MAX，那么它是一直递增，超过了就清零计算。所以计算key的闲置时间，就要分两种情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1 key.lru &lt; server.lruclock</span><br><span class="line">  </span><br><span class="line">  return server.lruclock - key.lru</span><br><span class="line"></span><br><span class="line">2 key.lru &gt; server.lruclock</span><br><span class="line"></span><br><span class="line">  return server.lruclock+(REDIS_LRU_CLOCK_MAX - key.lru)</span><br></pre></td></tr></table></figure>
+
+<p>这样就能算出空闲时间了，就能比较热度。</p>
+<p>当redis内存达到maxmemory（可是设置），就会进行lru算法。随机采样出5个（可设置）key，淘汰掉最旧的。如果淘汰了还是超过maxmemory，那就继续，直到内存低于maxmemory。</p>
+<p>redis3.0中加入了淘汰池，是一个数组，大小是maxmemory_samples，每一次lru淘汰的和池子的合并，在淘汰最旧的一个。保留剩余的进入下一个循环。</p>
+<ul>
+<li>LFU模式</li>
+</ul>
+<p>LFU和LRU有些许区别。在对象头结构的lru字段上，它将24bit分为16bit和8bit。8bit称为logistic counter，用来存储访问频率。16bit用来存储上一次logic更新的时间（一般是logc被衰减的时间，简称ldt。</p>
+<p>logc存储的是对数值。logc每次访问都会增加，采用概率法递增。建立新的key时，默认值是5。</p>
+<p>ldt只有使用淘汰算法的时候才会更新。ldt单位是分钟，对2的16次方取模，45天就折返。</p>
+<p>使用lfu时，要先对logc进行衰减。这个ldt就是用在对logic的衰减。算法是将现有的logc值减去对象空闲时间（两个ldt相减）再除以一个衰减系数(可设置)。</p>
 
         </div>
         <!-- .entry-content -->
@@ -320,30 +441,11 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/10/12/go-concurrency-channel-usage/" rel="prev">
-              <div class="background">
-<!--                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100161.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100161.webp">-->
-                
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100161.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                Go concurrency and Channel</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2020/09/08/hello-my-life/" rel="next">
+            <a href="/2020/10/12/go-concurrency-channel-usage/" rel="next">
               <div class="background">
                 
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100161.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
@@ -352,7 +454,7 @@
               Next Post</span>
               <div class="info">
                 <h3>
-                hello my life</h3>
+                Go concurrency and Channel</h3>
                 <hr>
               </div>
             </a>
