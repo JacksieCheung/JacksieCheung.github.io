@@ -7284,7 +7284,7 @@ to {
 }
 .highlight-wrap {
     position: relative;
-    background:#21252b;
+    background:#e0c7c7;
     border-radius:5px;
     font:15px/22px "Microsoft YaHei","Arial",Sans-Serif;
     line-height:1.6;
@@ -7316,8 +7316,8 @@ to {
 }
 .highlight-wrap code::-webkit-scrollbar-thumb {
     border-radius:10px !important;
-    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.5) !important;
-    background-color:#21252b !important
+    -webkit-box-shadow:inset 0 0 6px rgba(255,255,224,.5) !important;
+    background-color:#FFFFE0 !important
 }
 .highlight-wrap code {
     background:#1d1f21;
