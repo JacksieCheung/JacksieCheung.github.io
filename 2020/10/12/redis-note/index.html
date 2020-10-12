@@ -266,7 +266,7 @@
 </ul>
 <p>上面讲了将socket的读写方法设置成非阻塞，但是其实还不完整。因为都是读了写了就返回了，线程不知道什么时候才继续读和写。</p>
 <p>这个时候就要用到操作系统给我们的事件轮询api。这里以select为例。</p>
-<pre><code>read_events, write_events = select(read_fds, write_fds, timeout)
+<pre><code class="c">read_events, write_events = select(read_fds, write_fds, timeout)
 for event in read_events:
     handle_read(event.fd)
 for event in write_events:
@@ -301,7 +301,7 @@ handle_others()</code></pre>
 <p><strong>redis的数据结构</strong></p>
 <p>redis的基本数据结构有string list hash set zset五种</p>
 <p>首先要说的是所有的redis对象都有下列的对象头结构：</p>
-<pre><code>struct RedisObject &#123;
+<pre><code class="c">struct RedisObject &#123;
     int4 type;       // 4bits
     int4 encoding;   // 4bits
     int24 lru;       // 24bits
@@ -314,7 +314,7 @@ handle_others()</code></pre>
 </ul>
 <p>redis的字符串是可以修改的，在内存中是以字节数组形式存在的。c语言的字符串标准形式是以’\0’作为结束符，然后要获取string的长度直接调用strlen。但是这要对字符串进行遍历扫描。redis单线程顶不住，所以redis的字符串结构，稍微不一样。</p>
 <p>redis的string又叫sds(simple dynamic string)结构如下：</p>
-<pre><code>struct SDS&lt;T&gt; &#123;
+<pre><code class="c">struct SDS&lt;T&gt; &#123;
     T capacity;      // 数组容量
     T len;           // 数组长度
     byte flags;      // 特殊标识符
@@ -350,7 +350,7 @@ handle_others()</code></pre>
 </ul>
 <p>redis为了节约内存，zset和hash在元素个数较少的时候，会采用ziplist进行存储。它是一段连续的内存空间。元素之间紧挨着存储，没有任何冗余空隙。</p>
 <p>如下为ziplist的伪代码：</p>
-<pre><code>struct ziplist&lt;T&gt; &#123;
+<pre><code class="c">struct ziplist&lt;T&gt; &#123;
     int32 zlbytes;         // 整个压缩列表占用的字节数
     int32 zltail_offset;   // 最后一个元素距离压缩列表起始位置的偏移量
     int16 zllength;        // 元素个数
@@ -377,7 +377,7 @@ struct entry &#123;
 <p>当set容纳的元素都是整数并且元素个数较小时，redis会使用intset来存储集合元素。</p>
 <p>intset是紧凑的数组结构，同时支持16/32/64位整数。</p>
 <p>伪代码如下：</p>
-<pre><code>struct intset&lt;T&gt; &#123;
+<pre><code class="c">struct intset&lt;T&gt; &#123;
     int32 encoding;  // 决定整数位宽是16/32/64
     int32 length;    // 元素个数
     int&lt;T&gt; contents; // 整数数组
@@ -388,7 +388,7 @@ struct entry &#123;
 <p>redis以前的版本用普通双向链表和压缩列表来存储list，现在换了用快速列表。快速列表其实就是两者的结合体，顶层是双向列表，每个节点指向压缩列表。</p>
 <p>这样一个quicklist节点保存的是一个ziplist，是一片数据</p>
 <p>伪代码如下：</p>
-<pre><code>struct quicklistNode &#123;
+<pre><code class="c">struct quicklistNode &#123;
     quicklistNode* prev;
     quicklistNode* next;
     ziplist* zl;   // 指向压缩列表
@@ -409,7 +409,7 @@ struct entry &#123;
 </ul>
 <p>zset因为有排序功能，单独一个字典结构不够用。所以zset的底层是一个hash加上一个跳跃列表。跳跃列表专门来提供排序功能。</p>
 <p>其伪代码如下：</p>
-<pre><code>struct zslnode &#123;
+<pre><code class="c">struct zslnode &#123;
     strirng value;
     double score;
     zslnode*[] forwards; // 多层连接指针
@@ -435,7 +435,7 @@ struct entry &#123;
 <p>3如果过期key比例超过了1/4，就重复步骤一</p>
 <p>同时，为了保证过期扫描不会出现循环过度，导致线程卡死，算法还增加了扫描上限，默认不会超过25ms。</p>
 <p>为了防止一个大型redis实例中的所有key在同一时间过期导致的卡死，要给key的过期时间设定一个随机范围</p>
-<pre><code>redis.expire_at(key, random.randint(86400)+expire_ts)</code></pre>
+<pre><code class="c">redis.expire_at(key, random.randint(86400)+expire_ts)</code></pre>
 <p><strong>redis的淘汰策略，LRU和LFU</strong></p>
 <p>当redis的内存超出物理内存限制时，redis就要开始清理自己的键腾出空间了。它提供了几种策略：1不会继续写请求，但是可以读。2淘汰设置过期时间的键，按热度淘汰/随机淘汰/按寿命淘汰。3淘汰全部的键，按热度/随机淘汰。</p>
 <ul>
@@ -444,7 +444,7 @@ struct entry &#123;
 <p>一般的LRU算法就是将全部的键放进链表里面，访问了就提到表头。淘汰时把尾部踢掉。但redis要使用这种方法，就要额外消耗内存。所以redis采用了近似lru的算法。</p>
 <p>redis的头对象结构中有一个字段叫LRU，那是用来记录对象热度的。在lru模式下，这个字段存储的是redis时钟server.lruclock，每次访问都会更新。这是一个24bit的整数，默认是unix时间戳对2的24次方取模的结果，大约97天清零一次，redis默认每毫秒更新一次。</p>
 <p>如果server.lruclock没有超过REDIS_LRU_CLOCK_MAX，那么它是一直递增，超过了就清零计算。所以计算key的闲置时间，就要分两种情况：</p>
-<pre><code>1 key.lru &lt; server.lruclock
+<pre><code class="c">1 key.lru &lt; server.lruclock
 
   return server.lruclock - key.lru
 
