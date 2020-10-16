@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title>archive_a: 2020/10 | Hello World!</title>
+  <title>redis introduction | Hello World!</title>
   <meta name="description" content="jacksieChueng的个人博客" />
   <meta name="keywords" content="linux,golang,mysql,rpc" />
   
@@ -207,143 +207,385 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
-<div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/sharejs.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img">
+        <img src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100161.webp" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+      </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      redis introduction</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-10-16
+        
+      
+        ·<span id="readcount"></span>次阅读
+      
+      </p>
     </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"> <!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="Pointer-amp-LinkedList-amp-Stack"><a href="#Pointer-amp-LinkedList-amp-Stack" class="headerlink" title="Pointer&amp;LinkedList&amp;Stack"></a>Pointer&amp;LinkedList&amp;Stack</h2><h3 id="1-☞哪取哪，c语言利器——指针"><a href="#1-☞哪取哪，c语言利器——指针" class="headerlink" title="1.☞哪取哪，c语言利器——指针"></a>1.☞哪取哪，c语言利器——指针</h3><p>&#8195;在介绍链表和栈之前，我们需要稍微了解一下指针的概念。</p>
+<p>&#8195;ｃ语言中，每当我们定义一个变量时，内存中将会划分出一块由若干个存储单元组成的区域，用于保存该变量的数据。而内存里每个存储单元都有各自的编号，称为“地址”。</p>
+<p>&#8195;如果把内存看成一条街，每个存储单元就像一个房子。而地址就是房子的门牌号。</p>
+<p>&#8195;指针也是变量，只不过指针存储的值比较特殊，它存储的是地址。也就是那些房子的门牌号。</p>
+<ul>
+<li>地址</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh//JacksieCheung/CDN/listshare/memory.gif" alt="内存地址图片"></p>
+<p><strong>指针使用</strong></p>
+<p>&#8195;下面我们简单介绍一下指针的使用。</p>
+<p>&#8195;通过如下方式声明一个指向int类型变量的，名字叫做 ‘ptr’ 的指针变量:</p>
+<pre><code class="c">int* ptr;
+
+int a = 5;
+
+ptr = &amp;a;
+
+// 当然最好直接初始化
+int* ptr = &amp;a;</code></pre>
+<p>&#8195;既然指针能指向int类型的变量，是不是也能指向别的？答案是肯定的。</p>
+<p>&#8195;指针指向的类型可以是int, char, float, double, void等。也可以是自定义的结构体、函数和数组。</p>
+<pre><code class="c">typedef struct listNode &#123;
+    int Val;
+    struct listNode* Next;
+&#125; listNode;
+
+typedef struct Stack &#123;
+    int* base;
+    int* top;
+    int stack_size;
+&#125; Stack;
+
+// ptr表示的就是一个指向类型为listNode型结构体的指针
+listNode* ptr = (listNode*)malloc(sizeof(listNode));
+
+// p表示的是指向一个长度为５的int型顺序表的指针
+int* p = (int*)malloc(sizeof(int)*5);</code></pre>
+<p>&#8195;我们可以通过如下方法访问指针指向的变量</p>
+<pre><code class="c">// 输出　５
+printf(&quot;%d&quot;,*ptr);
+
+// 输出节点node的值val
+printf(&quot;%d&quot;,*ptr-&gt;Val);</code></pre>
+<p><strong>特别提醒</strong>&#8195;=&gt;&#8195;<strong>野指针</strong></p>
+<pre><code class="c">int* ptr;
+
+// 没有给 ptr 初始化
+// 此 ptr 为野指针
+printf(&quot;%d&quot;,*ptr);</code></pre>
+<p>&#8195;如果没有给指针初始化，指针就会指向一个随机的地址。当我们访问这个地址时，就会出现一些很讨厌的错误。</p>
+<p>&#8195;<strong>所以我们要这样做：</strong></p>
+<pre><code class="c">// 初始化若用不上
+int* ptr　=　NULL;
+
+// 需要用时，先赋值 再使用
+ptr = &amp;a;
+
+// 用完记得指向 NULL
+ptr=NULL;</code></pre>
+<blockquote>
+<p>使用malloc函数会自动初始化,但是有可能会分配失败。</p>
+</blockquote>
+<h3 id="2-扒扒链表的裤子"><a href="#2-扒扒链表的裤子" class="headerlink" title="2.扒扒链表的裤子"></a>2.扒扒链表的裤子</h3><p>&#8195;下面会介绍一下链表，顺便把它和顺序表做一个对比。</p>
+<p>&#8195;链表和顺序表都是线性表。线性表有两种存储结构，分别是链式存储和顺序存储。</p>
+<p>&#8195;顺序存储叫顺序表。它的结构是一段连续的内存空间。</p>
+<p>&#8195;链式存储的，称为链表。节点与节点之间通过指针相连。</p>
+<p>&#8195;下面我们来看看链表的节点长啥样</p>
+<pre><code class="c">// 一个简单单向链表的节点
+typdef struct listNode&#123;
+    ElemType Val;
+    struct listNode* Next;
+&#125; listNode;
+
+// 创建表头
+lsitNode* head = (listNode*)malloc(sizeof(listNode));
+
+// 创建新节点
+listNode* node = (listNode*)malloc(sizeof(listNode));
+
+// 链接表头和新节点
+head-&gt;Next = node;</code></pre>
+<p>&#8195;这是一个简单单向的链表节点的结构。节点与节点之间，通过节点成员next连接，连成一条线，就形成了链表。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/listshare/linklist.png" alt="链表示意图"></p>
+<p>&#8195;要学会链表最基本的使用，无非是建立链表（插入节点）、删除节点、查找节点。下面一一介绍。</p>
+<p><strong>链表的建立/增</strong></p>
+<p>&#8195;在实际应用中，我们不可能像上面展示的那样去一个个建节点。实在是太累了，而且做的是无用功。这个时候，for循环就要登场了！</p>
+<pre><code class="c">// 通过迭代创建多节点（插在表尾）
+// 要用一个工具人帮我们迭代
+listNode* tmp = head;
+
+for (int i=0;i&lt;10;i++) &#123;
+    listNode* node=(listNode*)malloc(sizeof(listNode));
+    if (node) return error; // 判断有 malloc 分配是否成功，malloc失败返回NULL。
+    node-&gt;Val = i; // 初始化赋值
+    tmp-&gt;Next = node; // 链接
+    tmp = tmp-&gt;Next; // 工具人始终走到表尾准备连接。
+&#125;</code></pre>
+<p>&#8195;要是每次插入数据都要用一个工具人插在表尾，时间复杂度会随着链表节点增加而增加,这显然不是我们所希望的。<del>（气抖冷，工具人什么时候才能站起来！）</del></p>
+<p>&#8195;所以我们这里要用一另一种方式:<strong>插在表头</strong></p>
+<pre><code class="c">for (int i=0;i&lt;10;i++) &#123;
+    listNode* node = (listNode*)malloc(sizeof(listNode));
+    if (!node) return error;
+    node-&gt;Val = i;
+    node-&gt;Next = head-&gt;Next; // 这样是保留头节点在最开始，node-&gt;Next = head
+    head-&gt;Next = node;       // head = node 这样是不保留头节点在最开始
+&#125;</code></pre>
+<p>&#8195;这样时间复杂度不仅从 O(n) 降为O(1)，同时也不用工具人了。<del>（原来连工具人都做不了吗）</del></p>
+<p><strong>链表迭代\查找</strong></p>
+<p>&#8195;所谓的迭代\查找，说简单点就是要在链表中找一个节点。其实在上面已经有提到了，这里直接放代码。</p>
+<pre><code class="c">// 需要一个工具人帮我们找
+listNode* p = head;
+
+// 使用 while 循环，能简单地走完整个链表
+while(p!=NULL) p=p-&gt;next; // 只需在循环中加入条件判断，就能轻松找到节点了。</code></pre>
+<p>&#8195;对于单向链表，我们不得不使用工具人。因为迭代过程中指针要一直往后面的节点走。但是节点又没有指向前面节点的指针。如果头节点往后走了，前面的节点就找不到了。</p>
+<p>&#8195;在一般使用中，就算是双向链表，也会设置工具人去迭代。因为我们总是希望马上找到第一个节点。</p>
+<p>&#8195;这样的迭代操作，时间复杂度是O(n),会随着链表的节点的增加而增加。但是除了这样找，也没有其他办法。这是链表的一个特征。</p>
+<p><strong>链表删除</strong></p>
+<p>&#8195;有了查找的基础，下面来看看链表的删除。</p>
+<pre><code class="c">// 下面演示删除特定值的节点
+listNode* p = ptr;
+
+if (ptr-&gt;Val == key)&#123; // 首先要分析头节点是否为我们要删的节点
+    ptr = ptr-&gt;Next;
+    free(p);
+&#125;
+
+return 0;
+
+// 头结点不是要删的，则继续往后找，需要一个工具人迭代，另一个工具人辅助删除。
+p = p-&gt;Next;
+listNode* tmp = ptr;
+
+while(p!=NULL &amp;&amp; p-&gt;Val!=key)&#123;
+    p=p-&gt;Next;
+    tmp=tmp-&gt;Next;
+    return 0;
+&#125;
+
+if (p == NULL)&#123;
+    return 0;
+&#125;
+
+tmp-&gt;Next = p-&gt;Next;
+free(p);</code></pre>
+<p>&#8195;注意这里的链表是单向链表。如果是双向的，删除可以不需要这么麻烦。可以通过node-&gt;Pre-&gt;Next=node-&gt;Next来一步到位。</p>
+<p>&#8195;可以看到，链表删除一个节点只需要改变节点之间的指针变量，非常方便。整个删除流程（除了查找部分）的时间复杂度是O(1)。</p>
+<p><strong>链表与顺序表</strong></p>
+<p>&#8195;不妨先回顾一下顺序表的建立（插入）、查找、删除。</p>
+<ul>
+<li><p>插入:插在表尾时间复杂度为O(1),就是时不时长度不够了要realloc。</p>
+</li>
+<li><p>查找:因为顺序表内存是连在一起的，而我们又知道一个节点所占用的内存块大小。所以可以很方便地使用 *(p+n) 直接访问。时间复杂度为O(1)。</p>
+</li>
+<li><p>删除:顺序表删除需要移动节点，非常麻烦。时间复杂度为O(n)。</p>
+</li>
+</ul>
+<p>&#8195;一对比就很容易发现两者的优缺点了。链表插入和删除是强项，而顺序表的查找是强项。</p>
+<p><strong>单向链表的扩展</strong></p>
+<ul>
+<li>双向链表</li>
+</ul>
+<p>&#8195;既然有指向后面节点的指针，那当然也可以有指向前面节点的。</p>
+<pre><code class="c">typdef struct listNode&#123;
+    int Val
+    *lstNode Pre;
+    *listNode Next;
+&#125; listNode;</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/listshare/doubly%2Blinked%2Blist.png" alt="双向链表图"></p>
+<ul>
+<li>环形链表</li>
+</ul>
+<p>&#8195;我们之前的链表，最后一个节点指向的都是NULL。其实也可以指向表头。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/listshare/sortedInsertionCircularLinkedList.jpg" alt="环形链表示意图"></p>
+<p>&#8195;链表相关题目：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-two-sorted-lists/">合并两个有序链表</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle/">找环</a></p>
+</li>
+</ul>
+<h3 id="3-揭开栈的神秘面纱"><a href="#3-揭开栈的神秘面纱" class="headerlink" title="3.揭开栈的神秘面纱"></a>3.揭开栈的神秘面纱</h3><p>&#8195;说到栈，容易让人联想到下面几组词：“后进先出”、“数据结构”、“全栈工程师”、“爆栈”、“Stack overflow”。<del>似乎提到栈的都是一些很强的东西</del></p>
+<p><strong>栈结构</strong></p>
+<p>&#8195;从数据结构看，栈也是线性表，而且是操作受限的线性表。</p>
+<p>&#8195;我们一般将栈的表尾称为栈顶，表头称为栈底。栈的插入和删除，规定只能在栈顶，也就是表尾进行。因此，栈就有了后进先出的特点。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/listshare/stack.png" alt="栈示意图"></p>
+<p>&#8195;和线性表类似，栈也有两种存储方式：顺序存储和链式存储。这里就看看顺序栈吧，链式栈太容易实现就不看了。</p>
+<pre><code class="c">typedef struct Stack &#123;
+    SElemType *base; // base 指向栈底，不动
+    SElemType *top;  // top指向栈顶，移动
+    int stacksize;   // 当前已分配的存储空间，以元素为单位，方便判断爆栈
+&#125; Stack;
+
+// 建立栈
+Stack stack = (Stack*)malloc(sizeof(Stack));
+
+stack-&gt;base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType));
+
+// 这里可以加上判断 base 是否为空的条件
+
+stack-&gt;top = stack-&gt;base
+
+stack-&gt;stacksize = STACK_INIT_SIZE;</code></pre>
+<p>&#8195;就结构上来说，顺序栈只比顺序表多了一个指向表尾的指针。</p>
+<p><strong>栈使用</strong></p>
+<p>&#8195;栈的插入节点叫做”push”，删除节点叫做”pop”。实际上和顺序表的插入删除大同小异，只是多了一个对栈顶指针的操作。代码如下：</p>
+<pre><code class="c">// push 压栈过程
+// 如果容量不够，需要 realloc
+if (stack-&gt;top-stack-&gt;base == stack-&gt;stacksize)&#123;
+    int* tmp = (int*)realloc(stack-&gt;base,(stack-&gt;stacksize+INCREMENT_SIZE)*sizeof(int));
+    if (!tmp) return error;
+
+    stack-&gt;base = tmp;
+    stack-&gt;stacksize += INCREMENT_SIZE;
+&#125;
+
+*(stack-&gt;top) = node; // 压入
+stack-&gt;top++;         // 栈顶指针移向后一位
+
+// pop 弹出
+if (stack-&gt;top==stack-&gt;base)&#123;
+    return error; // 栈为空
+&#125;
+
+stack-&gt;top--;
+
+tmp = *(stack-&gt;top);</code></pre>
+<p>&#8195;栈的结构和线性表大同小异，不过它的思想需要记住。因为后进先出的特性，天然地适合解决某些问题。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses/">有效括号</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/permutations/">全排列（深度优先遍历）</a></p>
+</li>
+</ul>
+<p><strong>代码运行时的内存结构</strong></p>
+<p>&#8195;计算机运行一个程序时，会给这个程序分配一段可使用的内存,如图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/listshare/listshare/memoryLayoutC.jpg" alt="内存示意图"></p>
+<ul>
+<li><p>Text Segment:代码段，存储指令</p>
+</li>
+<li><p>Initialized Data Segment:(data segment) 数据段，<strong>初始化的</strong>存储全局变量和静态变量</p>
+</li>
+<li><p>Uninitialized Data Segment:(block started by symbol) bss段，存储未初始化的或初始化为0的全局变量和静态变量。</p>
+</li>
+<li><p>Stack:这就是我们说的栈，这个区存储局部变量(包括main函数里的)，还和函数调用相关</p>
+</li>
+<li><p>heap：堆。用户可以通过malloc和free来操作这个区域。</p>
+</li>
+</ul>
+<p>更详细的内容可以看如下文章：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/memory-layout-of-c-program/">https://www.geeksforgeeks.org/memory-layout-of-c-program/</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap">https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap</a></p>
+</li>
+</ul>
+<p><strong>函数调用过程</strong></p>
+<p>&#8195;函数调用过程中，也用到了栈。这里不多做讲解，有兴趣的可以看看下面的文章：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.csee.umbc.edu/~chang/cs313.s02/stack.shtml">https://www.csee.umbc.edu/~chang/cs313.s02/stack.shtml</a></li>
+</ul>
+<p><strong>注释</strong></p>
+<ul>
+<li>存储单元-&gt; CPU访问存储器的基本单位，以８位二进制位作为一个存储单元。也就是一个字节。</li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        
+        <p></p>
+          
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/10/12/redis-note/" rel="next">
+              <div class="background">
                 
-                <h3 class="al_year">2020年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      10月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/10/16/listshare/">
-                          <span style="color:#0bf;">
-                          16日09:37:41</span>
-                          redis introduction
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/10/12/redis-note/">
-                          <span style="color:#0bf;">
-                          12日12:58:50</span>
-                          redis introduction
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/10/12/go-concurrency-channel-usage/">
-                          <span style="color:#0bf;">
-                          12日12:58:36</span>
-                          Go concurrency and Channel
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
-              
-              
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      09月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/09/08/vscode-download-course/">
-                          <span style="color:#0bf;">
-                          08日18:11:13</span>
-                          vscode download course
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/09/08/hello-my-life/">
-                          <span style="color:#0bf;">
-                          08日15:16:58</span>
-                          hello my life
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/09/06/hello-world/">
-                          <span style="color:#0bf;">
-                          06日22:07:51</span>
-                          hello world
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
-            </div>
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/100161.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                redis introduction</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
           </div>
         </div>
-      </article>
-    </div>
-  </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">
