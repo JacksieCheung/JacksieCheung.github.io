@@ -505,9 +505,9 @@ typedef struct listNode &#123;
     struct listNode* Next;
 &#125; listNode;
 
-void hello(listNode** ptr)&#123;
+void hello(listNode* ptr)&#123;
     listNode node=&#123;100,NULL&#125;;
-    (*ptr)-&gt;Next = &amp;node;
+    ptr-&gt;Next = &amp;node;
 &#125;
 
 void hello2()&#123;
@@ -516,7 +516,7 @@ void hello2()&#123;
 
 int main()&#123;
     listNode* ptr = (listNode*)malloc(sizeof(listNode));
-    hello(&amp;ptr);
+    hello(ptr);
     hello2();
     printf(&quot;%d&quot;,ptr-&gt;Next-&gt;Val);
     return 0;
