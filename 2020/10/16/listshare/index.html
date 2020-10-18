@@ -267,7 +267,7 @@ ptr = &amp;a;
 // 当然最好直接初始化
 int* ptr = &amp;a;</code></pre>
 <p>&#8195;既然指针能指向int类型的变量，是不是也能指向别的？答案是肯定的。</p>
-<p>&#8195;指针指向的类型可以是int, char, float, double, void等。也可以是自定义的结构体、函数和数组。</p>
+<p>&#8195;指针指向的类型可以是int, char, float, double, void等。也可以是自定义的结构体、函数和内存中一块连续的区域。</p>
 <pre><code class="c">typedef struct listNode &#123;
     int Val;
     struct listNode* Next;
@@ -289,7 +289,7 @@ int* p = (int*)malloc(sizeof(int)*5);</code></pre>
 printf(&quot;%d&quot;,*ptr);
 
 // 输出节点node的值val
-printf(&quot;%d&quot;,*ptr-&gt;Val);</code></pre>
+printf(&quot;%d&quot;,ptr-&gt;Val);</code></pre>
 <p><strong>特别提醒</strong>&#8195;=&gt;&#8195;<strong>野指针</strong></p>
 <pre><code class="c">int* ptr;
 
@@ -433,7 +433,7 @@ free(p);</code></pre>
 <p>&#8195;从数据结构看，栈也是线性表，而且是操作受限的线性表。</p>
 <p>&#8195;我们一般将栈的表尾称为栈顶，表头称为栈底。栈的插入和删除，规定只能在栈顶，也就是表尾进行。因此，栈就有了后进先出的特点。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/JacksieCheung/CDN/listshare/stack.png" alt="栈示意图"></p>
-<p>&#8195;和线性表类似，栈也有两种存储方式：顺序存储和链式存储。这里就看看顺序栈吧，链式栈太容易实现就不看了。</p>
+<p>&#8195;和线性表类似，栈也有两种存储方式：顺序存储和链式存储。这里就看看顺序栈吧，链式就留给大家去思考了，其实都是一样的。</p>
 <pre><code class="c">typedef struct Stack &#123;
     SElemType *base; // base 指向栈底，不动
     SElemType *top;  // top指向栈顶，移动
